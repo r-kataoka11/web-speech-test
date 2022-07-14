@@ -10,13 +10,25 @@ const App = () => {
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
+    isMicrophoneAvailable,
   } = useSpeechRecognition()
 
+  // Web Speech APIをサポートしていないブラウザの場合
   if (!browserSupportsSpeechRecognition) {
     return (
       <div className="app">
         <h1>Web Speech API テスト</h1>
         <p>お使いのブラウザーはサポートしていません。</p>
+      </div>
+    )
+  }
+
+  // マイクが許可されていない場合
+  if (!isMicrophoneAvailable) {
+    return (
+      <div className="app">
+        <h1>Web Speech API テスト</h1>
+        <p>音声認識を使用するには、マイクの使用を許可する必要があります。</p>
       </div>
     )
   }
