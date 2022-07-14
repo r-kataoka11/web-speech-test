@@ -27,7 +27,11 @@ const App = () => {
       <p>マイク：{listening ? 'オン' : 'オフ'}</p>
       <p>
         <button
-          onClick={() => SpeechRecognition.startListening()}
+          onClick={() =>
+            SpeechRecognition.startListening({
+              language: 'ja',
+            })
+          }
           disabled={listening}
         >
           スタート
