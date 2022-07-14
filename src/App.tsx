@@ -34,7 +34,7 @@ const App = () => {
         <button onClick={() => SpeechRecognition.stopListening()}>
           ストップ
         </button>
-        <button onClick={resetTranscript}>ストップ</button>
+        <button onClick={resetTranscript}>リセット</button>
       </p>
       <p>{transcript}</p>
     </div>
