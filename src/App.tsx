@@ -12,8 +12,6 @@ const App = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition()
 
-  console.log(browserSupportsSpeechRecognition)
-
   if (!browserSupportsSpeechRecognition) {
     return (
       <div className="app">
@@ -28,10 +26,16 @@ const App = () => {
       <h1>Web Speech API テスト</h1>
       <p>マイク：{listening ? 'オン' : 'オフ'}</p>
       <p>
-        <button onClick={() => SpeechRecognition.startListening()}>
+        <button
+          onClick={() => SpeechRecognition.startListening()}
+          disabled={listening}
+        >
           スタート
         </button>
-        <button onClick={() => SpeechRecognition.stopListening()}>
+        <button
+          onClick={() => SpeechRecognition.stopListening()}
+          disabled={!listening}
+        >
           ストップ
         </button>
         <button onClick={resetTranscript}>リセット</button>
